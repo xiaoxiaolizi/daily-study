@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         function moveon() {
+             var answer = confirm("准备好了嘛？");
+             if(answer) window.localtion = "http://www.taobao.com";
+         }
+        setTimeout(moveon, 60000);
+
+        function debug(msg) {
+            var log = document.getElementById('debuglog');
+            if(!log) {
+                log = document.createElement('div');
+                log.id = "debuglog";
+                log.innerHTML = "<h1>Debug Log</h1>"
+                document.body.appendChild(log);
+            }
+            var pre = document.createElement("pre");
+            var text = document.creatTextNode(msg);
+            pre.appendChild(text);
+            log.appendChild(pre);
+        }
+
+        function hide(e, reflow) {
+            if(reflow) {
+                e.style.display = 'display';
+            }
+            else {
+                e.style.visibility = 'hidden';
+            }
+        }
+        function highlight(e) {
+            if(!e.className) e.className = 'hilite';
+            else e.classname += ' hilite';
+        }
+
+        window.onload = function() {
+            var images = document.getElementByTagname('img');
+            for(var i = 0; i < images.length; i++) {
+                var image = image[i];
+                if (image.addEventListener)
+                    image.addEventListener("click",hide, false);
+                else 
+                    image.attachEvent("onclick", hide);
+            }   
+            function hide(event) {
+                event.target.style.visibility = "hidden";
+            }
+        }
+        
+
+        function debug(msg) {
+            var log = $("#debuglog");
+            if (log.length == 0) {
+                log = $("<div id='debuglog'><h1>Debug Log</h1></div>");
+                log.appendTo(document.body);
+            }
+            log.append($("<pre/>").text(msg));
+        }
+    </script>
+</body>
+</html>

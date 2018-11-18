@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+     // 创建自定义对象的最简单方式就是创建一个object 的实例，然后再为它天津属性和方法
+     var person = new Object();
+     person.name = "Nicholas";
+     person.age = 29;
+     person.job = "Software Engineer";
+
+     person.sayName = function(){
+         alert(this.name);
+     }
+
+     // 对象字面量创建对象
+     var person = {
+         name: "Nicholas",
+         age: 29,
+         job: "Software Engineer",
+         sayName: function(){
+             alert(this.name);
+         }
+     }
+    </script>
+</body>
+</html>
